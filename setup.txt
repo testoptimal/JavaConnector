@@ -1,0 +1,7 @@
+https://dzone.com/articles/publish-your-artifacts-to-maven-central
+
+Sonatypeaccount
+yxl01, L@2kL
+
+run pom.xml (maven install) to build jar files
+run build.xml to create zip file
