@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="TestOptimal-JavaConnector" basedir=".">
+<project name="JavaConnector" basedir="." default="buildZip">
 	<target name="buildZip" description="create deploy zip">
 		<property name = "releaseBuildDir" value = "build" />
 		<property name = "releaseLabel" value = "1.0.1" />
@@ -16,7 +16,7 @@
 	  	<copy file="target/TestOptimal-JavaConnector-${releaseLabel}-jar-with-dependencies.jar" tofile="${releaseBuildDir}/TestOptimal-JavaConnector-${releaseLabel}-jar-with-dependencies.jar"/>
 	  	<!--copy file="target/TestOptimal-JavaConnector-${releaseLabel}-javadoc.jar" tofile="${releaseBuildDir}/TestOptimal-JavaConnector-${releaseLabel}-javadoc.jar"/-->
 	  	
-	  	<zip destfile="TestOptimal-JavaConnector.zip"
+	  	<zip destfile="TestOptimal-JavaConnector-${releaseLabel}.zip"
 	       basedir="${releaseBuildDir}/"
 	  	/>
 	 </target>
