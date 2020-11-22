@@ -5,3 +5,11 @@ yxl01, L@2kL
 
 run pom.xml (maven install) to build jar files
 run build.xml to create zip file
+
+generate GPG key - 01to01, check support@testoptimal.com
+
+https://github.com/samuelmeuli/action-maven-publish/blob/master/docs/deployment-setup.md
+
+https://itnext.io/publishing-artifact-to-maven-central-b160634e5268
+
+https://nebula-graph.io/posts/maven/
