@@ -18,7 +18,7 @@
 	<artifactId>JavaConnector</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>JavaConnector</name>
-	<description>APIs to access TestOptimal Model-Based Testing (MBT) Server</description>
+	<description>APIs to access TestOptimal Model-Based Testing (MBT) Server and custom plugin development</description>
 	<packaging>jar</packaging>
 	<url>https://github.com/testoptimal/JavaConnector</url>
 	<inceptionYear>2020</inceptionYear>
