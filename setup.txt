@@ -6,10 +6,42 @@ yxl01, L@2kL
 run pom.xml (maven install) to build jar files
 run build.xml to create zip file
 
-generate GPG key - 01to01, check support@testoptimal.com
+generate GPG key - to@01mbt, check support@testoptimal.com
+
+maven deploy to push to sonatype.org
+
+https://oss.sonatype.org/
+c:/Users/yxl01/.m2/settings.xml
+<settings xmlns="http://maven.apache.org/settings/1.0.0"
+>
+    <servers>
+		<server>
+		  <id>ossrh</id>
+		  <username>B9IQ+KEK</username>
+		  <password>ksL6sAXS/Agv/RNnmFlTm8t/b7xPVKgBSibVzRj886Ef</password>
+		</server>
+    </servers>
+    <!-- profiles>
+        <profile>
+            <id>ossrh</id>
+            <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <gpg.passphrase>to@01mbt</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>ossrh</activeProfile>
+    </activeProfiles-->
+</settings>
+
 
 https://github.com/samuelmeuli/action-maven-publish/blob/master/docs/deployment-setup.md
 
 https://itnext.io/publishing-artifact-to-maven-central-b160634e5268
 
 https://nebula-graph.io/posts/maven/
+
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy (default-deploy) on project JavaConnector: Failed to deploy artifacts: Could not transfer artifact com.github.testoptimal:JavaConnector:jar:1.0.1-20201209.231734-1 from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): Access denied to https://oss.sonatype.org/content/repositories/snapshots/com/github/testoptimal/JavaConnector/1.0.1-SNAPSHOT/JavaConnector-1.0.1-20201209.231734-1.jar. Error code 401, Unauthorized -> [Help 1]
+
