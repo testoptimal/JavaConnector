@@ -1,9 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import testoptimal.api.APIError;
 import testoptimal.api.AgentAPI;
 import testoptimal.api.ModelAPI;
@@ -31,6 +28,11 @@ public class test_Agent {
 	private ModelAPI modelAPI;
 	private String modelName;
 
+	/**
+	 * requires TestOptimal server running on port 8888
+	 * 
+	 * @throws APIError
+	 */
 	@Before
 	public void init () throws APIError {
 		Server svr = new Server(Protocol.http, "localhost", 8888, "lin@to.com", "test");

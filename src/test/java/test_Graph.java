@@ -31,6 +31,11 @@ public class test_Graph {
 	private ModelAPI exec;
 	private Model model;
 
+	/**
+	 * requires TestOptimal server running on port 8888
+	 * 
+	 * @throws APIError
+	 */
 	@Before
 	public void init () throws APIError {
 		Server svr = new Server(Protocol.http, "localhost", 8888, "lin@to.com", "test");

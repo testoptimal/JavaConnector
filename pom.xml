@@ -11,7 +11,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.testoptimal</groupId>
 	<artifactId>JavaConnector</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>JavaConnector</name>
 	<description>APIs to access TestOptimal Model-Based Testing (MBT) Server and custom plugin development</description>
 	<packaging>jar</packaging>
@@ -58,7 +58,7 @@
     </distributionManagement>
 	
 	<build>
-	 	<sourceDirectory>src</sourceDirectory>
+	 	<sourceDirectory>src/main/java</sourceDirectory>
        <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -125,7 +125,7 @@
         
         <resources>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>src/resources/</directory>
             </resource>
         </resources>        
 	</build>
