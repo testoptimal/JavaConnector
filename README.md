@@ -96,14 +96,14 @@ You may choose one of the following combinatorial algorithms to genreate test ca
 Refer to [DataDesigner](https://testoptimal.com/v6/wiki/doku.php?id=data_design_ide) for more details.
 
 ## Setup for Eclipse and Other Java IDE
-Download [TestOptimal JavaConnector zip](https://testoptimal.com/downloads/Rel-6.0/TestOptimal-JavaConnector.zip) and unzip it to your local directory. You should find these files:
+Just add following Maven dependency to pom.xml file:
 
-- LICENSE
-- README.md
-- TestOptimal-JavaConnector-[version].jar
-- TestOptimal-JavaConnector-[version]-jar-with-dependencies.jar
+	<dependency>
+      <groupId>com.github.testoptimal</groupId>
+	  <artifactId>JavaConnector</artifactId>
+	  <version>1.0.2</version>
+	</dependency>
 
-Add one of the jar file to your project class path for your project in Eclipse.  Other Java IDE works the same way.
 
 ## License
 [Apache License Version 2](http://www.apache.org/licenses/LICENSE-2.0)
