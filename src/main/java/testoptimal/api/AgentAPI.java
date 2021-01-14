@@ -53,8 +53,8 @@ public class AgentAPI {
 	 * @return mbtSessID model execution sesson ID
 	 * @throws APIError on any error
 	 */
-	public String startModel (String modelName_p) throws APIError {
-		return this.startModel (modelName_p, MbtMode.Optimal);
+	public String execModel (String modelName_p) throws APIError {
+		return this.execModel (modelName_p, MbtMode.Optimal);
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class AgentAPI {
 	 * @return mbtSessID model execution sesson ID
 	 * @throws APIError on any error
 	 */
-	public String startModel (String modelName_p, MbtMode mbtMode_p) throws APIError {
+	public String execModel (String modelName_p, MbtMode mbtMode_p) throws APIError {
 		this.runReq = new ModelRequest();
 		this.runReq.options.put("path", "client");
 		this.runReq.modelName = modelName_p;
@@ -86,7 +86,7 @@ public class AgentAPI {
 	 * @return mbtSessID model execution sesson ID
 	 * @throws APIError on any error
 	 */
-	public String startModel (String modelName_p, List<Trans> transList_p, boolean optimal_p) throws APIError {
+	public String execModel (String modelName_p, List<Trans> transList_p, boolean optimal_p) throws APIError {
 		this.runReq = new ModelRequest();
 		this.runReq.options.put("path", "client");
 		this.runReq.modelName = modelName_p;
@@ -199,7 +199,7 @@ public class AgentAPI {
 	 * to interrupt model execution.
 	 * @throws APIError on any error
 	 */
-	public void stopModel () throws APIError {
+	public void stopModelExec () throws APIError {
 		this.checkModelRunning("stopModel");
 		this.svr.sendGet("runtime", "session/" + this.mbtSessInfo.mbtSessID + "/stop", null, 200);
 	}

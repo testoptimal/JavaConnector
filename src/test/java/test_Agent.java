@@ -43,7 +43,7 @@ public class test_Agent {
 	
 	@Test
 	public void test_all () throws APIError {
-		this.agentAPI.startModel(modelName);
+		this.agentAPI.execModel(modelName);
 		this.agentAPI.regAgent(modelName);
 		String cmd = this.agentAPI.getNextCmd();
 		while (cmd != null && !cmd.equals("")) {
@@ -52,7 +52,7 @@ public class test_Agent {
 			cmd = this.agentAPI.getNextCmd();
 		}
 		System.out.println ("Agent is done");
-		this.agentAPI.stopModel();
+		this.agentAPI.stopModelExec();
 		RunResult result = this.agentAPI.getModelStats(modelName);
 		System.out.println("results: " + result.getPathList());
 		modelAPI.getGraphMSC(modelName, "msc.png");

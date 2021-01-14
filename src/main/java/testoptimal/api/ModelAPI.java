@@ -61,7 +61,7 @@ public class ModelAPI {
 	 * @throws APIError on any error
 	 */
 	public RunResult genPaths (String modelName_p, MbtMode mbtMode_p) throws APIError {
-		return this.genPaths (modelName_p, MbtMode.Optimal, 0);
+		return this.genPaths (modelName_p, mbtMode_p, 0);
 	}
 	
 	/**
