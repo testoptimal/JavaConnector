@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public class test_Model {
 	 */
 	@Before
 	public void init () throws APIError {
-		Server svr = new Server(Protocol.http, "localhost", 8888, "lin@to.com", "test");
+		Server svr = new Server(Protocol.http, "localhost", 8886, "lin@to.com", "test");
 		exec = svr.getModelAPI ();
 		model = new Model("ClientModel_1");
 		State start = model.addStateInitial("Start");
@@ -120,5 +121,12 @@ public class test_Model {
 		RunResult result = exec.genPathsPartial (model.getName(), someTrans, false);
 		exec.closeModel(model.getName());
 		System.out.println("test_generate_partial_optimal: " + result.getPathList());
+	}
+	
+	@Test
+	public void test_runModel () throws APIError {
+		Map<String, Object> result = exec.runModel("DEMO_TestGenToFile");
+		exec.closeModel("DEMO_TestGenToFile");
+		System.out.println("test_runModel: " + result);
 	}
 }

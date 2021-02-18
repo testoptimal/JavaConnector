@@ -6,6 +6,9 @@ run build.xml to create zip file
 generate GPG key - to@01mbt, check support@testoptimal.com
 
 maven deploy to push to sonatype.org
+	make sure increment version #. can not re-deploy over existing version
+	It may error updating older version files, but it appears the deploy still works.
+
 
 https://oss.sonatype.org/
 

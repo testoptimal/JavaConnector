@@ -11,7 +11,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.testoptimal</groupId>
 	<artifactId>JavaConnector</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.4</version>
 	<name>JavaConnector</name>
 	<description>APIs to access TestOptimal Model-Based Testing (MBT) Server and custom plugin development</description>
 	<packaging>jar</packaging>

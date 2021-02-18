@@ -1,5 +1,6 @@
 package testoptimal.api;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
@@ -8,6 +9,7 @@ import testoptimal.api.Constants.GraphType;
 import testoptimal.api.Constants.MbtMode;
 import testoptimal.api.FSM.Model;
 import testoptimal.api.FSM.ModelRequest;
+import testoptimal.api.FSM.RunRequest;
 import testoptimal.api.FSM.Trans;
 
 /**
@@ -128,6 +130,59 @@ public class ModelAPI {
 	}
 
 	/**
+	 * runs the model and waits for completion.
+	 * @param modelName_p model name
+	 * @return Map of these keys: statsURL status and mbtSessID. use statsURL to retrieve execution results (stats).
+	 * @throws APIError on any error
+	 */
+	public Map<String, Object> runModel (String modelName_p) throws APIError {
+		RunRequest req = new RunRequest();
+		req.modelName = modelName_p;
+		Gson gson = new Gson();
+		String reqJSON = gson.toJson(req);
+		String resultJSON = this.svr.sendPost("runtime", "model/run/sync", reqJSON, 200);
+		Map<String, Object> result = new java.util.HashMap<>();
+		result = gson.fromJson(resultJSON, result.getClass());
+		return result;
+	}
+
+	/**
+	 * runs the model and waits for completion.
+	 * @param runReq_p run request with execution options
+	 * @return Map of these keys: statsURL status and mbtSessID. use statsURL to retrieve execution results (stats).
+	 * @throws APIError on any error
+	 */
+	public Map<String, Object> runModel (RunRequest runReq_p) throws APIError {
+		Gson gson = new Gson();
+		String reqJSON = gson.toJson(runReq_p);
+		String resultJSON = this.svr.sendPost("runtime", "model/run/sync", reqJSON, 200);
+		Map<String, Object> result = new java.util.HashMap<>();
+		result = gson.fromJson(resultJSON, result.getClass());
+		return result;
+	}
+
+	/**
+	 * runs MCases on the model specified and waits for completion.
+	 * @param modelName_p model name
+	 * @param mcaseList_p list of MCase names to be executed.
+	 * @return Map of these keys: statsURL status and mbtSessID. use statsURL to retrieve execution results (stats).
+	 * @throws APIError on any error
+	 */
+	public Map<String, Object> runModelMCase (String modelName_p, String[] mcaseList_p) throws APIError {
+		RunRequest req = new RunRequest();
+		req.modelName = modelName_p;
+		req.options.put("MCaseList", mcaseList_p);
+		req.mbtMode = MbtMode.MCase;
+		Gson gson = new Gson();
+		String reqJSON = gson.toJson(req);
+		String resultJSON = this.svr.sendPost("runtime", "model/run/sync", reqJSON, 200);
+		Map<String, Object> result = new java.util.HashMap<>();
+		result = gson.fromJson(resultJSON, result.getClass());
+		return result;
+	}
+
+
+	/**
 	 * closes the model (to release memory). Do not use this method to close model execution started with AgentAPI.
 	 * @param modelName_p model name
 	 * @throws APIError on any error
@@ -136,7 +191,7 @@ public class ModelAPI {
 		this.svr.sendGet("model", modelName_p + "/close", null, 200);
 		this.svr.getAgentAPI().modelClosed();
 	}
-	
+
 	/**
 	 * download model graph.
 	 * @param modelName_p model name

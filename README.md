@@ -101,7 +101,7 @@ Just add following Maven dependency to pom.xml file:
 	<dependency>
       <groupId>com.github.testoptimal</groupId>
 	  <artifactId>JavaConnector</artifactId>
-	  <version>1.0.2</version>
+	  <version>1.0.4</version>
 	</dependency>
 
 
