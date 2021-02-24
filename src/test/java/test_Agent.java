@@ -35,7 +35,7 @@ public class test_Agent {
 	 */
 	@Before
 	public void init () throws APIError {
-		Server svr = new Server(Protocol.http, "localhost", 8888, "lin@to.com", "test");
+		Server svr = new Server(Protocol.http, "localhost", 8886, "lin@to.com", "test");
 		modelName = "DEMO_RemoteTrigger";
 		agentAPI = svr.getAgentAPI ();
 		modelAPI = svr.getModelAPI();
@@ -48,7 +48,7 @@ public class test_Agent {
 		String cmd = this.agentAPI.getNextCmd();
 		while (cmd != null && !cmd.equals("")) {
 			System.out.println("Next Cmd: " + cmd);
-			this.agentAPI.setResult(Math.random()>0.25, "Echo " + cmd);
+			this.agentAPI.setResult(Math.random()==0.25, "Echo " + cmd);
 			cmd = this.agentAPI.getNextCmd();
 		}
 		System.out.println ("Agent is done");

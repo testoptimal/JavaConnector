@@ -37,12 +37,30 @@ public class ModelAPI {
 	
 	/**
 	 * uploads a model to TestOptimal server.
-	 * @param model_p model name
+	 * @param model_p model object
 	 * @throws APIError on any error
 	 */
 	public void upload (Model model_p) throws APIError {
 		String modelJson = this.gson.toJson(model_p);
 		this.svr.sendPost("client", "model/upload", modelJson, 200);
+	}
+
+	/**
+	 * retrieves model from TestOptimal server.
+	 * @param modelName_p model name
+	 * @return model object
+	 * @throws APIError on any error
+	 */
+	public Model getModel (String modelName_p) throws APIError {
+		String retJson = this.svr.sendGet("model", modelName_p + "/getModel", null, 200);
+		try {
+			Map<String, Object> retMap = new java.util.HashMap<>();
+			retMap = (Map<String,Object>) gson.fromJson(retJson, retMap.getClass());
+			return (Model) gson.fromJson((String) retMap.get("modelJson"), Model.class);
+		}
+		catch (Exception e) {
+			throw new APIError(0, "JSON parser error", e.getLocalizedMessage(), "Server.getModel");
+		}
 	}
 
 	/**

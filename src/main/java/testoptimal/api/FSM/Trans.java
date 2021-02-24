@@ -1,7 +1,4 @@
 package testoptimal.api.FSM;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.annotations.SerializedName;
 
 import testoptimal.api.Util;
@@ -29,8 +26,6 @@ public class Trans {
 	@SerializedName (value="targetUID")
 	private String targetStateName = "";
 	
-	private transient State targetState;
-	
 	@SerializedName (value="event")
 	private String name;
 
@@ -43,7 +38,6 @@ public class Trans {
 	 * @return this transition for chaining action
 	 */
 	public Trans setTargetState (State targetState_p) {
-		this.targetState = targetState_p;
 		this.targetStateName = targetState_p.getUid();
 		return this;
 	}

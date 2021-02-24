@@ -8,9 +8,9 @@ generate GPG key - to@01mbt, check support@testoptimal.com
 maven deploy to push to sonatype.org
 	make sure increment version #. can not re-deploy over existing version
 	It may error updating older version files, but it appears the deploy still works.
+	maven clean deploy (clean up previous version artifacts)
 
-
-https://oss.sonatype.org/
+check repo: https://oss.sonatype.org/
 
 c:/Users/yxl01/.m2/settings.xml
 <settings xmlns="http://maven.apache.org/settings/1.0.0">

@@ -77,13 +77,13 @@ public class Server {
 	}
 
 	private APIError genApiError (int status_p, String message_p, String url_p) {
-		APIError err = new APIError (status_p, "Error", message_p, url_p);
+		APIError err = null;
 		try {
 			Gson gson = new Gson();
 			err = gson.fromJson(message_p, err.getClass());
 		}
 		catch (Exception e) {
-			
+			err = new APIError (status_p, "Error", message_p, url_p);
 		}
 		return err;
 	}

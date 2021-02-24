@@ -44,7 +44,7 @@ public class test_Model {
 	 */
 	@Before
 	public void init () throws APIError {
-		Server svr = new Server(Protocol.http, "localhost", 8886, "lin@to.com", "test");
+		Server svr = new Server(Protocol.http, "localhost", 8888, "lin@to.com", "test");
 		exec = svr.getModelAPI ();
 		model = new Model("ClientModel_1");
 		State start = model.addStateInitial("Start");
@@ -128,5 +128,11 @@ public class test_Model {
 		Map<String, Object> result = exec.runModel("DEMO_TestGenToFile");
 		exec.closeModel("DEMO_TestGenToFile");
 		System.out.println("test_runModel: " + result);
+	}
+
+	@Test
+	public void test_getModel () throws APIError {
+		Model model = exec.getModel("DEMO_TestGenToFile");
+		System.out.println("test_getModel: " + model.getName());
 	}
 }
